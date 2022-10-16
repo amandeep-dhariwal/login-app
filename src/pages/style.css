@@ -1,0 +1,36 @@
+.App-header {
+    background-color: #131416;
+    min-height: 100vh;
+    text-align: center;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+
+
+  .Navbar {
+    background-color: black;
+    color: white;
+    font-size: 40px;
+    justify-content: center;
+  }
+
+  .ButtonGroup {
+    display:flex;
+    justify-content: center;
+  }
+
+  .btn {
+    margin: 20px;
+  }
+
+  .Form {
+    /* background-color: #393c41; */
+    padding: 20px;
+    width: 500px;
+    min-height: 100vh;
+
+  }

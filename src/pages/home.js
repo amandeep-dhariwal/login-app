@@ -1,19 +1,28 @@
-import './home.css';
+import './style.css';
 import React from "react";
-import {Link } from "react-router-dom";
-// import "./login"
+import { Link } from "react-router-dom";
+import { Navbar } from 'react-bootstrap';
 
 
 function Home() {
-    return(
-        <header className = "App-header">
-        <h1>Welcome</h1>
-        <Link to= "/login">
-            <button class="btn btn-primary">Login</button>
-        </Link>
-        <Link to = "/signup"><button class="btn btn-primary">SignUp</button></Link>
-      </header>
-    ) 
+    return (
+        <header >
+            <Navbar className="Navbar">Welcome To Login Application</Navbar>
+            <div className="App-header">
+                <br />
+                <p>New To This Website? Please Sign UP</p>
+                <p>Otherwise Please Login</p>
+                <div className="ButtonGroup">
+                    <div className = "btn">
+                        <Link to="/login"><button class="btn btn-primary pr-1">Login</button></Link>
+                    </div>
+                    <div className = "btn">
+                        <Link to="/signup"><button class="btn btn-primary">SignUp</button></Link>
+                    </div>
+                </div>
+            </div>
+        </header>
+    )
 
 }
 
