@@ -1,7 +1,7 @@
 import './home.css';
 import React from "react";
 import {Link } from "react-router-dom";
-import "./login"
+// import "./login"
 
 
 function Home() {
@@ -11,7 +11,7 @@ function Home() {
         <Link to= "/login">
             <button class="btn btn-primary">Login</button>
         </Link>
-        <button class="btn btn-primary">SignUp</button>
+        <Link to = "/signup"><button class="btn btn-primary">SignUp</button></Link>
       </header>
     ) 
 
