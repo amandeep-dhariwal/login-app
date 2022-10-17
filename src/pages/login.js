@@ -1,17 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import axios from "axios"
-import { useState, useRef } from "react";
+import { useState } from "react";
 import './style.css';
 import { Navbar } from 'react-bootstrap';
-
+import {useNavigate} from 'react-router-dom';
 
 function Login() {
 
+  const navigate = useNavigate();
   const [userEmail, setEmail] = useState('');
   const [userPassword, setPassword] = useState('');
-  const isLoggedIn = useRef(false)
-
+  const [authenticated, setauthenticated] = useState(localStorage.getItem(localStorage.getItem("authenticated")|| false));
+  
   const handleEmail = (e) => {
     setEmail(e.target.value);
   }
@@ -29,10 +29,17 @@ function Login() {
     axios.post("/users", request)
       .then(resp => {
         alert(resp.data.message);
-        isLoggedIn.current = true;
+        if (resp.data.message == "Successful Login"){
+          setauthenticated(true)
+          localStorage.setItem("authenticated", true);
+          navigate("/user");
+        }
       })
       .catch(err => {
+        alert(err);
         console.log('error found', err);
+        setPassword('')
+        setEmail('')
       })
   }
 
@@ -52,7 +59,7 @@ function Login() {
             <input className="input" type="password" value={userPassword} onChange={handlePassword} class="form-control" id="exampleInputPassword1" />
           </div>
           <br />
-          <Link to ="/user"><button type="submit" class="btn btn-primary" onClick={authenticateUser}> Login </button></Link>
+          <button type="submit" class="btn btn-primary" onClick={authenticateUser}> Login </button>
         </form>
       </div>
     </div>
